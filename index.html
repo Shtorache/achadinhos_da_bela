@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Achadinhos da Belinha</title>
+    <meta
+      name="description"
+      content="Loja organizada com os produtos recomendados por Bela Gimenes, com redirecionamento direto para o Mercado Livre."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <h1>Achadinhos da Belinha</h1>
+          <p class="hero-text">
+            Produtos organizados para facilitar sua escolha. Abra o item, veja os detalhes e siga
+            direto para a oferta no Mercado Livre.
+          </p>
+
+          <div class="hero-actions">
+            <a class="hero-cta" href="#products-section">Ver produtos</a>
+            <p class="hero-note">Compra finalizada no Mercado Livre com redirecionamento direto.</p>
+          </div>
+
+          <div class="toolbar hero-toolbar">
+            <div class="toolbar-top">
+              <label class="search-field">
+                <span>Buscar produto</span>
+                <input id="search-input" type="search" placeholder="Ex.: Alexa, tênis, panela..." />
+              </label>
+
+              <label class="sort-field">
+                <span>Ordenar por</span>
+                <select id="sort-select">
+                  <option value="relevance">Relevância</option>
+                  <option value="price-asc">Menor preço</option>
+                  <option value="price-desc">Maior preço</option>
+                  <option value="rating-desc">Melhor avaliação</option>
+                  <option value="title-asc">Nome A-Z</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="category-filters" class="category-filters" aria-label="Categorias"></div>
+
+            <div class="toolbar-summary">
+              <p id="results-summary">Carregando catálogo...</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-showcase">
+          <div class="showcase-heading">
+            <p>Em destaque</p>
+            <h2>Comece por aqui</h2>
+          </div>
+          <div id="hero-highlight-grid" class="hero-highlight-grid"></div>
+        </aside>
+      </header>
+
+      <main class="content">
+        <section id="products-section">
+          <div id="products-grid" class="products-grid" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="product-modal" class="product-modal">
+      <button id="modal-close" class="modal-close" type="button" aria-label="Fechar detalhes">
+        ×
+      </button>
+      <div id="modal-content" class="modal-content"></div>
+    </dialog>
+
+    <template id="product-card-template">
+      <article class="product-card">
+        <button class="product-card-button" type="button">
+          <div class="product-image-wrap">
+            <img class="product-image" alt="" loading="lazy" />
+            <span class="product-badge"></span>
+          </div>
+          <div class="product-body">
+            <p class="product-category"></p>
+            <h3 class="product-title"></h3>
+            <p class="product-brand"></p>
+            <div class="product-price-block">
+              <span class="product-previous-price"></span>
+              <strong class="product-price"></strong>
+            </div>
+            <p class="product-meta"></p>
+          </div>
+        </button>
+        <a class="product-link" target="_blank" rel="noreferrer noopener">Ver no Mercado Livre</a>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.cache/
+.vscode/
+.server-temp.cjs
+curlpage1.html
+page.html
+page1-outfile.html
+page1-raw.html
+page2.html

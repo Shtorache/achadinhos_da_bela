@@ -1,0 +1,9 @@
+{
+  "name": "achadinhos-da-belinha",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:data": "node scripts/fetch-products.mjs",
+    "serve": "npx serve . -l 4173"
+  }
+}
