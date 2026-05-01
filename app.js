@@ -159,6 +159,11 @@ function renderHeroHighlights(products) {
     .filter((product) => product.imageUrl && typeof product.price === "number")
     .slice(0, 4);
 
+  if (!picks.length) {
+    heroHighlightGrid.innerHTML = "";
+    return;
+  }
+
   heroHighlightGrid.innerHTML = picks
     .map(
       (product) => `
@@ -174,6 +179,7 @@ function renderHeroHighlights(products) {
 
 function renderProducts() {
   productsGrid.innerHTML = "";
+  renderHeroHighlights(state.filteredProducts);
 
   if (!state.filteredProducts.length) {
     productsGrid.innerHTML = `
@@ -229,7 +235,6 @@ async function bootstrap() {
   const payload = await response.json();
 
   state.products = payload.products;
-  renderHeroHighlights(payload.products);
   renderFilters(payload.profile.categories);
   filterProducts();
   renderProducts();
