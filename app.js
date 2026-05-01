@@ -21,6 +21,11 @@ const productTemplate = document.querySelector("#product-card-template");
 const modal = document.querySelector("#product-modal");
 const modalContent = document.querySelector("#modal-content");
 const modalClose = document.querySelector("#modal-close");
+const productsSection = document.querySelector("#products-section");
+
+function isMobileViewport() {
+  return window.matchMedia("(max-width: 640px)").matches;
+}
 
 function formatPrice(value) {
   return typeof value === "number" ? currencyFormatter.format(value) : "Consulte a oferta";
@@ -108,6 +113,10 @@ function renderFilters(categories) {
       filterProducts();
       renderFilters(categories);
       renderProducts();
+
+      if (isMobileViewport()) {
+        productsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
     categoryFilters.appendChild(button);
   });
